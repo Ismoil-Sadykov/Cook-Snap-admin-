@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   CreateCategory,
   CreateCountry,
-  CreateUser,
   DeleteCategory,
   DeleteCountry,
   DeleteUser,
@@ -12,14 +11,17 @@ import {
   GetUsers,
   UpdateCategory,
   UpdateCountry,
-  UpdateUser,
 } from "../api/api";
 
+type Profile = {
+  username: string;
+  fullname: string;
+};
 export interface CounterState {
   categories: any[];
   countries: any[];
   loading: boolean;
-  profile: any[];
+  profile: Profile | null;
   users: any[];
 }
 
@@ -27,7 +29,7 @@ const initialState: CounterState = {
   categories: [],
   countries: [],
   loading: false,
-  profile: [],
+  profile: null,
   users: [],
 };
 
